@@ -298,7 +298,7 @@ compareAndVisualizeDifferentAlgorithms = function(resultsPath, species, trait){
   ggsave(paste0(species, "_", trait, "_NCG_Comparison.png"), ncgComparisonPlot, device = "png", width=1980/100, height=1280/100, dpi = 100)
 }
 
-compareAndVisualizeDifferentAlgorithms("Results/Murciano_Granadina_Goats_MY210_NoMissing.results", "goat", "milk yield")
-compareAndVisualizeDifferentAlgorithms("Results/EW_36.results", "chicken", "eggweight")
-compareAndVisualizeDifferentAlgorithms("Results/Wheat_Scott_Yield_17_18.results", "wheat", "yield")
-compareAndVisualizeDifferentAlgorithms("Results/Rice_GY.results", "rice", "grain yield")
+compareAndVisualizeDifferentAlgorithms("Results/Goats.results", "goat", "milk yield")
+compareAndVisualizeDifferentAlgorithms("Results/Chicken.results", "chicken", "eggweight")
+compareAndVisualizeDifferentAlgorithms("Results/Wheat.results", "wheat", "yield")
+compareAndVisualizeDifferentAlgorithms("Results/Rice.results", "rice", "grain yield")
