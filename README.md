@@ -1,15 +1,25 @@
 # GS_Comparison_with_NCG
-Comparing methods for genomic prediction using normalized cumulative gain
+Comparing Genomic Prediction Methods Using Normalized Cumulative Gain
 
-The R script contains functions to run multiple different genomic prediction algorithms on a dataset with a repeated cross-validation.
-For comparing the methods the results can then be visualized using Pearson's correlation coefficient but also the normalized cumulative gain.
+This repository provides R code to benchmark and compare various genomic prediction algorithms using both Pearson’s correlation coefficient (r) and Normalized Cumulative Gain (NCG) as evaluation metrics.
 
-Genotype and phenotype data needs to be in the .raw format used by [PLINK](https://www.cog-genomics.org/plink/1.9/formats).
+The script includes functions to:
 
-The datasets that we analyzed in our study can be found as compressed files under [Datasets](https://github.com/FelixHeinrich/GS_Comparison_with_NCG/tree/main/Datasets).
+    Apply multiple genomic prediction methods (linear and machine learning-based)
 
-For more information see our study:
-Submission under preparation
+    Perform repeated cross-validation
+
+    Evaluate and visualize model performance using both r and NCG
+
+For more information on the use of Normalized Cumulative Gain in genomic prediction, please refer to our forthcoming publication:
+
+    Manuscript in preparation – link will be added upon publication.
+
+## Data Format
+The required genotype and phenotype data should be provided in the .raw format, as used by [PLINK](https://www.cog-genomics.org/plink/1.9/formats).
+
+## Example Datasets
+The datasets analyzed in our study are available as compressed files in the [Datasets](https://github.com/FelixHeinrich/GS_Comparison_with_NCG/tree/main/Datasets) folder.
 
 ## License
 
