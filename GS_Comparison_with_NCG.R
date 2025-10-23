@@ -180,7 +180,13 @@ createMeanNCGPlot = function(dataset, model_colors, titleText){
   # 1. Calculate mean performance for each model
   mean_trends <- dataset %>%
     group_by(Algo, k) %>%
-    summarize(Mean_nCG = mean(nCG), .groups = "drop")
+    summarize(Mean_nCG = mean(nCG),
+              SEM = sd(nCG) / sqrt(n()),
+              .groups = "drop") %>%
+    mutate(
+      Lower = Mean_nCG - SEM,
+      Upper = Mean_nCG + SEM 
+    )
   
   
   # 2. Find the best-performing model based on smoothed trends
@@ -220,6 +226,12 @@ createMeanNCGPlot = function(dataset, model_colors, titleText){
       aes(xmin = xmin, xmax = xmax, ymin = -Inf, ymax = (maxMean-minMean)*0.1+minMean, fill = Best_Algorithm),
       alpha = 0.3
     ) +
+    # Shaded ribbons for SEM
+    geom_ribbon(
+      data = mean_trends,
+      aes(x = k, ymin = Lower, ymax = Upper, fill = Algo),
+      alpha = 0.2
+    ) +
     # Smoothed trend lines
     geom_line(
       data = mean_trends,
@@ -232,7 +244,7 @@ createMeanNCGPlot = function(dataset, model_colors, titleText){
     labs(
       title = titleText,
       x = "Number of selected individuals (k)",
-      y = "*NCG* - Mean",
+      y = "*NCG* - Mean ± SEM",
       fill = "Best Algorithm",
       color = "Algorithm"
     ) +
@@ -294,8 +306,8 @@ compareAndVisualizeDifferentAlgorithms = function(resultsPath, species, trait){
                                             paste0("Performance of algorithms based on Pearson's correlation coefficient \u2013 ", species, " (", trait, ")"))
   ncgComparisonPlot = createMeanNCGPlot(ncgDF, model_colors, 
                                               paste0("Performance of algorithms based on *NCG* with band highlighting best algorithm \u2013 ", species, " (", trait, ")"))
-  ggsave(paste0(species, "_", trait, "_Pearson_Comparison.png"), pearsonComparisonPlot, device = "png", width=1980/100, height=1280/100, dpi = 100)
-  ggsave(paste0(species, "_", trait, "_NCG_Comparison.png"), ncgComparisonPlot, device = "png", width=1980/100, height=1280/100, dpi = 100)
+  ggsave(paste0(species, "_", trait, "_Pearson_Comparison.png"), pearsonComparisonPlot, device = "png", width=5940/300, height=3840/300, dpi = 300)
+  ggsave(paste0(species, "_", trait, "_NCG_Comparison.png"), ncgComparisonPlot, device = "png", width=5940/300, height=3840/300, dpi = 300)
 }
 
 compareAndVisualizeDifferentAlgorithms("Results/Goats.results", "goat", "milk yield")
