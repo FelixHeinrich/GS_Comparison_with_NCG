@@ -11,9 +11,7 @@ The script includes functions to:
 
 * Evaluate and visualize model performance using both r and NCG
 
-For more information on the use of Normalized Cumulative Gain in genomic prediction, please refer to our forthcoming publication:
-
-Manuscript in preparation – link will be added upon publication.
+For more information on the use of Normalized Cumulative Gain in genomic prediction, please refer to our publication listed below.
 
 ## Data Format
 The required genotype and phenotype data should be provided in the .raw format, as used by [PLINK](https://www.cog-genomics.org/plink/1.9/formats).
