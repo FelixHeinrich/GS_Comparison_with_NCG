@@ -24,3 +24,7 @@ The datasets analyzed in our study are available as compressed files in the [Dat
 ## License
 
 This project is licensed under the **GPL-3.0 License** - see [LICENSE](LICENSE) for more information.
+
+## Citation
+
+Heinrich, F.; Lange, T.M.; Ramzan, F.; Gültas, M.; Schmitt, A.O. Normalized cumulative gain as an alternative evaluation measure for genomic selection models. Genet Sel Evol 2025, 57, 70. [https://doi.org/10.1186/s12711-025-01022-9](https://doi.org/10.1186/s12711-025-01022-9)
